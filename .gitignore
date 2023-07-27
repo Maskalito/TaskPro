@@ -6,3 +6,6 @@ venv
 
 # database
 instance
+
+# pycache files
+*.pyc
