@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}TaskPro{% endblock %}
+
+{% block body %}
+    <header>
+        <h1>TaskPro</h1>
+    </header>
+
+    <section class="hero">
+        <h2>Welcome to your Professional Todo List</h2>
+        <p>Organize your tasks and get things done!</p>
+    </section>
+
+    <section class="features">
+
+        <div class="feature">
+            <i class="fas fa-tasks"></i>
+            <h3>Create Tasks</h3>
+            <p>Add, edit, and manage your tasks with ease.</p>
+        </div>
+
+        <div class="feature">
+            <i class="fas fa-users"></i>
+            <h3>Login</h3>
+            <p>Create your account or log yourself</p>
+            <a href="/login" class="button">Log Myself</a>
+        </div>
+
+        <div class="feature">
+            <i class="fas fa-check"></i>
+            <h3>Complete Tasks</h3>
+            <p>Mark tasks as done when completed.</p>
+        </div>
+
+    </section>
+
+{% endblock %}

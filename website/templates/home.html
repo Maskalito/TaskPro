@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block title %}Home - TaskPro{% endblock %}
+
+{% block body %}
+<header>
+    <h1>TaskPro</h1>
+    <div class="user">
+        <h2>{{ user.username }}</h2>
+    </div>
+</header>
+
+<section class="hero">
+    <h2>Welcome to your Tasks page</h2>
+</section>
+
+{% if not user.tasks %}
+    <div align="center">
+        <h3>There are no tasks. Create one below !</h3>
+    </div>
+{% else %}
+    <div align="center">
+        <h3>Here is your Tasks !</h3>
+    </div>
+    {% for task in user.tasks %}
+        <div class="task-card">
+            <div class="task-title">{{ task.title }}</div>
+            <div class="task-description">{{ task.description }}</div>
+            {% if task.status == 'todo' %}
+                <div class="task-todo">To do</div>
+            {% elif task.status == 'inprogress' %}
+                <div class="task-inprogress">In progress</div>
+            {% elif task.status == 'done' %}
+                <div class="task-done">Done</div>
+            {% endif %}
+            <a href="/delete/{{ task.id }}">
+                <span aria-hidden="true">&times;</span>
+            </a>
+        </div>
+    {% endfor %}
+{% endif %}
+
+<div class="task-form">
+    <h2 align="center">Add Task</h2>
+    <form id="taskForm" method="POST">
+
+        <label for="title">Title (max 50 characters):</label>
+        <input type="text" id="title" name="title" maxlength="50" required>
+
+        <label for="description">Description (max 300 characters):</label>
+        <textarea id="description" name="description" maxlength="300" required></textarea>
+
+        <label for="status">Status:</label>
+        <select id="status" name="status" required>
+            <option value="todo">To do</option>
+            <option value="inprogress">In progress</option>
+            <option value="done">Done</option>
+        </select>
+        <div align="center">
+            <button type="submit" class="button">Add Task</button>
+        </div>
+    </form>
+</div>
+
+<p><a href="{{ url_for('views.index') }}">Log out</a></p>
+{% endblock %}

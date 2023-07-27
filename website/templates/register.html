@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}Register - TaskPro{% endblock %}
+
+{% block body %}
+    <section class="auth-form">
+        <form method="POST">
+            <h2 align="center">Register for TaskPro</h2>
+
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" placeholder="Enter your username" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+            </div>
+
+            <button type="submit">Register</button>
+        </form>
+        <p>Already have an account? <a href="{{ url_for('auth.login') }}">Login here</a></p>
+        <p><a href="{{ url_for('views.index') }}">Go back to the home page</a></p>
+    </section>
+{% endblock %}

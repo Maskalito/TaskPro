@@ -1,0 +1,4 @@
+FLASK_APP=TaskPro
+FLASK_ENV=development
+FLASK_RUN_PORT=5000
+FLASK_RUN_EXTRA_FILES=README.MD:requirements.txt
